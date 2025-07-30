@@ -19,3 +19,6 @@ Code Reviewer is a fast and intelligent web application that provides automated 
 
 ## Screenshots  
 
+![Main application view](./Screenshots/image2.png)
+
+![Main application view](./Screenshots/image1.png)
