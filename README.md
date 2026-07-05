@@ -1,4 +1,6 @@
 # Code Reviewer  
+![CI](https://github.com/Shrutiii3/CodeReviewer/actions/workflows/ci.yml/badge.svg)
+
 **AI-Powered Code Assistant**
 
 ## Overview  
@@ -22,3 +24,26 @@ Code Reviewer is a fast and intelligent web application that provides automated 
 ![Main application view](./Screenshots/image2.png)
 
 ![Main application view](./Screenshots/image1.png)
+
+## Running with Docker
+This project has two parts, each with its own Dockerfile.
+
+Build and run the backend:
+```bash
+cd BackEnd
+docker build -t code-reviewer-backend .
+docker run -p 3000:3000 code-reviewer-backend
+```
+
+Build and run the frontend:
+```bash
+cd FrontEnd
+docker build -t code-reviewer-frontend .
+docker run -p 8080:80 code-reviewer-frontend
+```
+Visit `localhost:8080` in your browser for the frontend, which communicates with the backend at `localhost:3000`.
+
+Note: you'll need your own `.env` file inside `BackEnd` with a Gemini API key for the backend to function, since `.env` is gitignored and not included in the image.
+
+## CI/CD
+A GitHub Actions workflow automatically validates the Docker build for both the backend and frontend on every push and pull request to `main`. See `.github/workflows/ci.yml`.
